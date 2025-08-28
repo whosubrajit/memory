@@ -10,7 +10,12 @@
 <nav class="nav">
   <div class="wrap">
     <div class="logo"><a href="index.html">🧠 Memory</a></div>
-    <ul>
+    <script src = "nav-toggle.js" defer></script>
+    <!-- hamburger toggle (keeps same class we used in JS) -->
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+
+    <!-- nav links (id + class used by CSS/JS) -->
+    <ul id="main-nav" class="nav-links">
       <li><a class="btn" href="index.html">Home</a></li>
       <li><a class="btn active" href="stages.html">Stages</a></li>
       <li><a class="btn" href="types.html">Types</a></li>
