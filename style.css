@@ -77,28 +77,26 @@ img { max-width: 100%; border-radius: var(--radius); }
   color: #fff;
 }
 
-/* ---------- Desktop Nav (default) ---------- */
-.nav .wrap > .nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+/* ---------- Desktop Nav Links Fix ---------- */
+@media (min-width: 769px) {
+  .nav .wrap > .nav-links li a {
+    background: none !important;   /* remove box */
+    color: #fff !important;        /* white text */
+    border: none !important;       /* remove border */
+    padding: 0 !important;         /* remove padding */
+    border-radius: 0 !important;   /* remove rounding */
+  }
+
+  .nav .wrap > .nav-links li a.active {
+    color: var(--brand2) !important;  /* active link blue */
+  }
+
+  .nav .wrap > .nav-links li a:hover {
+    color: var(--brand2) !important;  /* optional hover effect */
+    background: none !important;      /* no hover box */
+  }
 }
 
-.nav .wrap > .nav-links li a {
-  color: #fff;          /* white text */
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0;            /* no box */
-  transition: color 0.3s ease;
-}
-
-.nav .wrap > .nav-links li a.active {
-  color: var(--brand2);  /* only active link is blue */
-}
-
-.nav .wrap > .nav-links li a:hover {
-  color: var(--brand2);  /* optional hover effect */
-}
 
 /* Hide hamburger on desktop */
 .nav .wrap > .menu-toggle {
