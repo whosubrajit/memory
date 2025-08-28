@@ -92,13 +92,12 @@ img { max-width: 100%; border-radius: var(--radius); }
   }
 
   .nav .wrap > .nav-links li a:hover {
-    color: var(--brand2) !important;  /* optional hover effect */
+    color: var(--brand2) !important;  /* hover text blue */
     background: none !important;      /* no hover box */
   }
 }
 
-
-/* Hide hamburger on desktop */
+/* Ensure hamburger is hidden on desktop */
 .nav .wrap > .menu-toggle {
   display: none;
 }
