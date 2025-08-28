@@ -6,14 +6,15 @@
   --bg3: #0b0e20;
   --text: #e8ebff;
   --muted: #b6b9d8;
-  --brand1: #cbac11;  /* gold */
-  --brand2: #2575fc;  /* blue */
+  --brand1: rgba(32, 97, 216, 0.45);  /* gold */
+  --brand2: rgba(43, 197, 192, 0.68);  /* blue */
   --brand3: #45f0df;  /* teal */
   --accent: #ff6ad5;  /* pink */
   --highlight: #ffd166; /* yellow */
   --shadow: 0 10px 30px rgba(0,0,0,.35);
   --radius: 16px;
 }
+
 /* Ensure content does not hide under fixed navbar */
 body {
   padding-top: 70px; /* adjust based on your navbar height */
@@ -51,18 +52,16 @@ html, body {
 a { color: var(--brand3); text-decoration: none; }
 img { max-width: 100%; border-radius: var(--radius); }
 
-/* Navbar */
+/* ---------------- Navbar ---------------- */
 .nav {
-  position: fixed;       /* fix it at the top */
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100%;
-  background-color: transparent; /* fully transparent */
-  z-index: 1000;         /* always on top */
+  background-color: transparent;
+  z-index: 1000;
   padding: 12px 0;
 }
 
-/* Wrap container inside navbar */
 .nav .wrap {
   display: flex;
   justify-content: space-between;
@@ -74,30 +73,80 @@ img { max-width: 100%; border-radius: var(--radius); }
 /* Logo */
 .nav .logo {
   font-size: 1.5rem;
-  color: #fff; /* always visible */
   font-weight: 600;
+  color: #fff;
 }
 
-/* Navbar links */
-.nav ul {
+/* Default nav-links (desktop) */
+.nav .wrap > .nav-links {
   display: flex;
-  list-style: none;
   gap: 20px;
+  list-style: none;
 }
 
-.nav ul li a {
-  color: #fff;           /* text always white */
-  text-decoration: none;  /* remove underline */
+.nav .wrap > .nav-links li a {
+  color: #fff;
+  text-decoration: none;
   font-weight: 600;
-  padding: 0;
-  background: none;
-  border: none;
   transition: color 0.3s ease;
 }
 
-.nav ul li a:hover,
-.nav ul li a.active {
-  color: #007BFF;         /* text turns blue on hover */
+.nav .wrap > .nav-links li a:hover,
+.nav .wrap > .nav-links li a.active {
+  color: var(--brand2); /* blue highlight */
+}
+
+/* Hide hamburger on desktop */
+.nav .wrap > .menu-toggle {
+  display: none;
+}
+
+/* ---------------- Mobile ---------------- */
+@media (max-width: 768px) {
+  /* nav links hidden by default */
+  .nav .wrap > .nav-links {
+    display: none !important;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; right: 12px;
+    background: rgba(15,18,38,0.95);
+    padding: 12px;
+    border-radius: 10px;
+    width: 220px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  }
+
+  /* show when active */
+  .nav .wrap > .nav-links.active {
+    display: flex !important;
+  }
+
+  /* hamburger button visible */
+  .nav .wrap > .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  /* dropdown link styling */
+  .nav .wrap > .nav-links li {
+    margin: 6px 0;
+  }
+
+  .nav .wrap > .nav-links li a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .nav .wrap > .nav-links li a:hover {
+    background: rgba(255,255,255,0.1);
+  }
 }
 
 
@@ -164,6 +213,8 @@ h3 { margin: .75rem 0 .25rem; }
   transform-style: preserve-3d;
 }
 .flip:hover .flip-inner { transform: rotateY(180deg); }
+
+/* faces with BLUR overlay kept */
 .face {
   position: absolute;
   inset: 0;
@@ -183,7 +234,7 @@ h3 { margin: .75rem 0 .25rem; }
   content: "";
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px); /* <-- BLUR stays */
   border-radius: var(--radius);
 }
 .face h3, .face p {
@@ -365,7 +416,6 @@ h3 { margin: .75rem 0 .25rem; }
   to { opacity: 1; transform: translateX(0); }
 }
 
-
 /* Typing effect */
 .typing-text {
   font-size: 3rem;
@@ -534,8 +584,6 @@ button.choice:hover {
   transform: scale(1.05);
 }
 
-
-
 /* Buttons */
 .btn {
   padding: .7rem 1rem;
@@ -554,9 +602,14 @@ button.choice:hover {
 }
 .btn:hover { transform: translateY(-3px); }
 
+
 /* Footer */
 footer {
   padding: 40px 16px;
   text-align: center;
   color: var(--muted);
 }
+
+/* Slide animation for sub-nodes (already referenced) */
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
