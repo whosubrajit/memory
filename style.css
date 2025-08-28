@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;650&display=swap');
 
 :root {
   --bg1: #0f1226;
@@ -9,7 +9,7 @@
   --brand1: rgba(32, 97, 216, 0.45);  /* gold */
   --brand2: rgba(43, 197, 192, 0.68);  /* blue */
   --brand3: #45f0df;  /* teal */
-  --accent: #ff6ad5;  /* pink */
+  --accent: #114ccc;  /* pink */
   --highlight: #ffd166; /* yellow */
   --shadow: 0 10px 30px rgba(0,0,0,.35);
   --radius: 16px;
@@ -61,7 +61,18 @@ img { max-width: 100%; border-radius: var(--radius); }
   z-index: 1000;
   padding: 12px 0;
 }
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem; /* or whatever spacing you prefer */
+}
 
+.nav-links li {
+  margin: 0;
+  padding: 0;
+}
 .nav .wrap {
   display: flex;
   justify-content: space-between;
@@ -77,27 +88,36 @@ img { max-width: 100%; border-radius: var(--radius); }
   color: #fff;
 }
 
-/* ---------- Desktop Nav Links Fix ---------- */
-@media (min-width: 769px) {
-  .nav .wrap > .nav-links li a {
-    background: none !important;   /* remove box */
-    color: #fff !important;        /* white text */
-    border: none !important;       /* remove border */
-    padding: 0 !important;         /* remove padding */
-    border-radius: 0 !important;   /* remove rounding */
+/* Default nav-links (desktop) */
+@media (min-width: 1024px) {
+  /* Lay out all nav items in one horizontal row */
+  .nav .wrap > .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 32px; /* spacing between all items */
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: auto !important;
   }
 
-  .nav .wrap > .nav-links li a.active {
-    color: var(--brand2) !important;  /* active link blue */
+  /* Remove the boxed "btn" look for ALL links on desktop */
+  .nav .wrap > .nav-links a {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.25s ease;
   }
 
-  .nav .wrap > .nav-links li a:hover {
-    color: var(--brand2) !important;  /* hover text blue */
-    background: none !important;      /* no hover box */
+  /* Hover color accent */
+  .nav .wrap > .nav-links a:hover {
+    color: var(--accent);
   }
 }
-
-/* Ensure hamburger is hidden on desktop */
+/* Hide hamburger on desktop */
 .nav .wrap > .menu-toggle {
   display: none;
 }
@@ -586,22 +606,25 @@ button.choice:hover {
 }
 
 /* Buttons */
+
 .btn {
-  padding: .7rem 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.25);
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  color: white;
-  font-weight: 600;
-  box-shadow: 0 10px 25px rgba(4, 24, 244, 0.3);
-  cursor: pointer;
-  transition: .25s;
-}
-.btn.secondary {
-  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  font-weight: 700 !important;
+  /* Bold for everyone */
   color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: transparent;
+  transition: all 0.3s ease;
 }
-.btn:hover { transform: translateY(-3px); }
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1); /* subtle hover */
+}
+.btn.active {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
 
 
 /* Footer */
