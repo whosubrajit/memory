@@ -1,0 +1,5 @@
+mkdir js/vendor
+echo "// placeholder" > js/vendor/placeholder.js
+git add js/vendor/placeholder.js
+git commit -m "Add vendor folder placeholder"
+git push
