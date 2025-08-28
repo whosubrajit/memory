@@ -77,7 +77,7 @@ img { max-width: 100%; border-radius: var(--radius); }
   color: #fff;
 }
 
-/* Default nav-links (desktop) */
+/* ---------- Desktop Nav (default) ---------- */
 .nav .wrap > .nav-links {
   display: flex;
   gap: 20px;
@@ -85,15 +85,19 @@ img { max-width: 100%; border-radius: var(--radius); }
 }
 
 .nav .wrap > .nav-links li a {
-  color: #fff;
+  color: #fff;          /* white text */
   text-decoration: none;
   font-weight: 600;
+  padding: 0;            /* no box */
   transition: color 0.3s ease;
 }
 
-.nav .wrap > .nav-links li a:hover,
 .nav .wrap > .nav-links li a.active {
-  color: var(--brand2); /* blue highlight */
+  color: var(--brand2);  /* only active link is blue */
+}
+
+.nav .wrap > .nav-links li a:hover {
+  color: var(--brand2);  /* optional hover effect */
 }
 
 /* Hide hamburger on desktop */
