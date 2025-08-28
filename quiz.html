@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo"><a href="index.html">🧠 Memory</a></div>
+    <ul>
+      <li><a class="btn" href="index.html">Home</a></li>
+      <li><a class="btn" href="stages.html">Stages</a></li>
+      <li><a class="btn" href="types.html">Types</a></li>
+      <li><a class="btn" href="forget.html">Forgetting</a></li>
+      <li><a class="btn" href="boost.html">Boost</a></li>
+      <li><a class="btn active" href="quiz.html">Quiz</a></li>
+      <li><a class="btn" href="vouch.html">AnonVouch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="panel">
+  <h2>Memory Quiz</h2>
+  <div id="quiz"></div>
+  <button id="submit">Submit</button>
+  <p id="result"></p>
+  <p id="timer"></p>
+  <canvas id="confetti"></canvas>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

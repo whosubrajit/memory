@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why We Forget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo"><a href="index.html">🧠 Memory</a></div>
+    <ul>
+      <li><a class="btn" href="index.html">Home</a></li>
+      <li><a class="btn" href="stages.html">Stages</a></li>
+      <li><a class="btn" href="types.html">Types</a></li>
+      <li><a class="btn active" href="forget.html">Forgetting</a></li>
+      <li><a class="btn" href="boost.html">Boost</a></li>
+      <li><a class="btn" href="quiz.html">Quiz</a></li>
+      <li><a class="btn" href="vouch.html">AnonVouch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="panel">
+  <h2>Ever Thought, Why Do We Forget?</h2>
+  <ul class="fancy-hierarchy">
+    <li>
+      <div class="node">🧩 <b>Encoding Failure</b></div>
+      <p class="explain">Info never went in. Example: Forgetting someone’s name right after meeting.</p>
+    </li>
+
+    <li>
+      <div class="node">⏳ <b>Storage Decay</b></div>
+      <p class="explain">Info fades over time. Example: Forgetting math formulas years later.</p>
+    </li>
+
+    <li>
+      <div class="node">🔑 <b>Retrieval Failure</b></div>
+      <p class="explain">Can’t access stored info. Example: Tip-of-the-tongue moment.</p>
+    </li>
+
+    <li class="interference">
+      <div class="node">⚡ <b>Interference</b></div>
+      <p class="explain">Other info gets in the way of remembering.</p>
+      <ul class="sub-list">
+        <li><div class="sub-node">📘 Proactive</div><p class="explain">Old password blocks new.</p></li>
+        <li><div class="sub-node">📗 Retroactive</div><p class="explain">New TikTok trend makes you forget old one.</p></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+<script>
+  // Toggle explanations
+  document.querySelectorAll(".node").forEach(node => {
+    node.addEventListener("click", () => {
+      const parent = node.parentElement;
+      parent.classList.toggle("active");
+
+      // Special case: Interference
+      if (parent.classList.contains("interference")) {
+        const subList = parent.querySelector(".sub-list");
+        subList.classList.toggle("show");
+      }
+    });
+  });
+
+  // Bounce on sub-nodes
+  document.querySelectorAll(".sub-node").forEach(sub => {
+    sub.addEventListener("click", () => {
+      sub.style.transform = "scale(1.2)";
+      setTimeout(() => sub.style.transform = "scale(1)", 200);
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

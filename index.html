@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Power of Memory</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Animate on Scroll Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo">🧠 Memory</div>
+    <ul>
+      <li><a class="btn active" href="index.html">Home</a></li>
+      <li><a class="btn" href="stages.html">Stages</a></li>
+      <li><a class="btn" href="types.html">Types</a></li>
+      <li><a class="btn" href="forget.html">Forgetting</a></li>
+      <li><a class="btn" href="boost.html">Boost</a></li>
+      <li><a class="btn" href="quiz.html">Quiz</a></li>
+      <li><a class="btn" href="vouch.html">AnonVouch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section with Animated Background -->
+<section class="hero">
+  <div class="overlay">
+    <h1 id="typing"></h1>
+    <p>Explore how our brain remembers, forgets, and learns.</p>
+    <div class="choice-box">
+      <h3>Do you want to take the quiz now or get a quick knowledge before?</h3>
+      <div class="choices">
+        <a href="stages.html" class="choice-btn">📘 Quick Knowledge</a>
+        <a href="quiz.html" class="choice-btn">📝 Take Quiz</a>
+      </div>
+    </div>
+  </div>
+  <canvas id="particles"></canvas>
+</section>
+
+<!-- Fun Fact Section -->
+<section class="panel" data-aos="fade-up">
+  <h2>Did you know?</h2>
+  <div class="fact-carousel">
+    <p class="fact active">🧠 Your brain receives <b>11 million bits of info per second</b>, but only 40 reach your conscious mind.</p>
+    <p class="fact">📚 People remember better when they associate learning with strong emotions.</p>
+    <p class="fact">😴 Sleep plays a huge role in consolidating memories.</p>
+    <p class="fact">🎶 Music can trigger stronger memory recall than spoken words.</p>
+  </div>
+</section>
+
+<!-- Call-to-Action -->
+<section class="panel" data-aos="zoom-in">
+  <h2>💬 Do You Need a Counsellor’s Help?</h2>
+  <p>Fill this quick form — a counsellor will reach you!</p>
+  <iframe src="https://forms.gle/BUxzbqN1CRisRYvz8"
+          width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</section>
+
+<footer>
+  <p>Made with ❤️ by Subrajit</p>
+</footer>
+
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Typing effect
+  const text = "The Power of Memory";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 100);
+    }
+  }
+  typing();
+
+  // Fact Carousel
+  let facts = document.querySelectorAll(".fact");
+  let index = 0;
+  setInterval(() => {
+    facts[index].classList.remove("active");
+    index = (index + 1) % facts.length;
+    facts[index].classList.add("active");
+  }, 4000);
+
+  // Particle Background
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particlesArray = [];
+  for (let i = 0; i < 100; i++) {
+    particlesArray.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3,
+      dx: (Math.random() - 0.5) * 1.5,
+      dy: (Math.random() - 0.5) * 1.5
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+      ctx.fillStyle = "rgba(255,255,255,0.7)";
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Journey</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo"><a href="index.html">🧠 Memory</a></div>
+    <ul>
+      <li><a class="btn" href="index.html">Home</a></li>
+      <li><a class="btn" href="stages.html">Stages</a></li>
+      <li><a class="btn active" href="types.html">Types</a></li>
+      <li><a class="btn" href="forget.html">Forgetting</a></li>
+      <li><a class="btn" href="boost.html">Boost</a></li>
+      <li><a class="btn" href="quiz.html">Quiz</a></li>
+      <li><a class="btn" href="vouch.html">AnonVouch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="panel">
+  <h2>The Types of Your Memory</h2>
+
+  <div class="journey">
+    <!-- Node template -->
+    <div class="node" data-next="stm">
+      <h3>Sensory Memory</h3>
+      <p>Stores incoming sensory information for a very short time.</p>
+    </div>
+
+    <div class="node hidden" id="stm" data-next="ltm">
+      <h3>Short Term Memory</h3>
+      <p>Temporary storage; holds small amounts of information briefly.</p>
+    </div>
+
+    <div class="node hidden" id="ltm" data-next="ltm-sub">
+      <h3>Long Term Memory</h3>
+      <p>Information stored for long durations; can be retrieved later.</p>
+    </div>
+
+    <div class="node hidden" id="ltm-sub">
+      <h3>Long Term Subtypes</h3>
+      <div class="sub-node" data-next="implicit">Implicit Memory (Skills & Conditioning)</div>
+      <div class="sub-node" data-next="explicit">Explicit Memory (Facts & Personal Events)</div>
+    </div>
+
+    <div class="node hidden" id="implicit">
+      <h3>Implicit Memory</h3>
+      <ul>
+        <li>Skills – Motor & Cognitive</li>
+        <li>Classical Conditioning</li>
+      </ul>
+    </div>
+
+    <div class="node hidden" id="explicit">
+      <h3>Explicit Memory</h3>
+      <ul>
+        <li>Facts (General Knowledge)</li>
+        <li>Personally Experienced Events</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<script src="types.js"></script>
+</body>
+</html>
