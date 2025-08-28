@@ -5,8 +5,9 @@ module.exports = {
     app: './js/app.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-    filename: './js/app.js',
-  },
+  path: path.resolve(__dirname, 'dist'),
+  clean: true,
+  filename: 'js/[name].[contenthash].js',
+  publicPath: './',  // important for static hosting
+},
 };
