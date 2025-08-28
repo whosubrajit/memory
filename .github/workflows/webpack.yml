@@ -2,7 +2,7 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "main", "deploy-fix" ]  # ✅ include your branch
+    branches: [ "main", "deploy-fix" ]
   pull_request:
     branches: [ "main" ]
 
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]  # ✅ pick one stable version
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build   # ✅ use npm script that calls webpack
+        run: npm run build
 
       - name: Upload dist folder
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
