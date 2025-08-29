@@ -548,7 +548,7 @@ button.choice:hover {
   margin-top: 1em;
   font-size: 1.2em;
   font-weight: bold;
-  color: #333;
+  color: #fbf9f9;
 }
 
 #mindmap {
@@ -627,6 +627,46 @@ button.choice:hover {
 }
 
 
+/* Shared button style */
+.memory-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 0.6em 1.2em;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+/* Glowing hover effect for all buttons */
+.memory-button:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* default red glow */
+  transform: scale(1.05);
+}
+
+/* Specific override for bottom buttons */
+.bottom-button {
+  font-size: 0.9rem;
+  padding: 0.5em 1em;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.bottom-button:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* white glow */
+  transform: scale(1.05);
+}
+
+/* Specific red hover for "I Accept" */
+#accept-button:hover {
+  color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
 /* Footer */
 footer {
   padding: 40px 16px;
@@ -637,3 +677,56 @@ footer {
 /* Slide animation for sub-nodes (already referenced) */
 @keyframes typing { from { width: 0; } to { width: 100%; } }
 @keyframes blink { 50% { border-color: transparent; } }
+
+/* Footer Navigation Buttons */
+.ending-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 16px;
+  gap: 45px; /* Adds space between button and text */
+  color: var(--muted);
+  text-align: center;
+}
+
+.footer-btn {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.footer-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 12px var(--accent);
+  transform: translateY(-2px);
+}
+
+.ending-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/*progress bar banaisi for timer*/
+#progress-container {
+  width: 100%;
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  height: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#progress-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #4179f1, rgba(11, 11, 11, 0.23));
+  transition: width 1s linear;
+  box-shadow: 0 0 8px rgb(12, 12, 12);
+}
