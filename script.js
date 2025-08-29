@@ -1,3 +1,4 @@
+
 /* ---------------- Quiz Logic ---------------- */
 let timeLeft = 150; // seconds
 let timer;
@@ -48,10 +49,15 @@ function buildQuiz() {
 // Timer logic
 function startTimer() {
   const timerEl = document.getElementById("timer");
+  const progressBar = document.getElementById("progress-bar");
+
   timer = setInterval(() => {
     if (timeLeft > 0) {
       timeLeft--;
       timerEl.textContent = "⏳ Time Left: " + timeLeft + "s";
+
+      const percent = (timeLeft / 150) * 100;
+      progressBar.style.width = percent + "%";
     } else {
       clearInterval(timer);
       if (!answered) checkQuiz(); // auto-submit
@@ -124,8 +130,7 @@ function launchConfetti() {
 }
 
 // Initialize quiz
-buildQuiz();
-startTimer();
+
 document.getElementById("submit").addEventListener("click", checkQuiz);
 
 //types
