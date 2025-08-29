@@ -10,11 +10,8 @@
 <nav class="nav">
   <div class="wrap">
     <div class="logo"><a href="index.html">🧠 Memory</a></div>
-    <script src = "nav-toggle.js" defer></script>
-    <!-- hamburger toggle (keeps same class we used in JS) -->
+    <script src="nav-toggle.js" defer></script>
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">☰</button>
-
-    <!-- nav links (id + class used by CSS/JS) -->
     <ul id="main-nav" class="nav-links">
       <li><a class="btn" href="index.html">Home</a></li>
       <li><a class="btn" href="stages.html">Stages</a></li>
@@ -27,18 +24,35 @@
   </div>
 </nav>
 
-<section class="panel">
+<!-- ✨ Pact Section -->
+<section class="panel" id="pact-section">
+  <h2>Memory Pact</h2>
+  <p>Once you begin this quiz, you must complete it before leaving. Memory demands your attention.</p>
+  <!-- Top Button -->
+  <button id="accept-btn" class="memory-button">I Accept</button>
+</section>
+
+<!-- 🧠 Quiz Section (hidden until accepted) -->
+<section class="panel" id="quiz-section" style="display:none;">
   <h2>Memory Quiz</h2>
   <div id="quiz"></div>
   <button id="submit">Submit</button>
   <p id="result"></p>
   <p id="timer"></p>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
   <canvas id="confetti"></canvas>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js"></script>
+<script src="quiz-lock.js"></script>
 
+
+<footer class="footer-nav">
+  <a class="footer-btn" href="types.html">← Boost Your Memory</a>
+  <a class="footer-btn" href="vouch.html"> Bonus Page for Your Brain →</a>
+</footer>
 </body>
 </html>
-
